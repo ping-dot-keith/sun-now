@@ -44,13 +44,14 @@ double lst, ha, alt, az;
     alpha = atan2(y , x);
     delta = asin(sin(epsilon*RADS)*sin(lambda*RADS));
     lst = range(280.46061837 + 360.98564736629 * d + LONG);
+    printf("       lst: %3.0f\n", lst);
     ha = range(lst - alpha*DEGS);
     alt = asin(sin(delta) * sin(LAT*RADS) + cos(delta) * cos(LAT*RADS) * cos(ha*RADS));
-    printf(" alt: %3.0f\n", alt*DEGS);
+    printf("       alt: %3.0f\n", alt*DEGS);
     y = -cos(delta) * cos(LAT*RADS) * sin(ha*RADS);
     x = sin(delta) - sin(LAT*RADS) * sin(alt);
     az = range(atan2(y, x)*DEGS);
-    printf("  az: %3.0f\n", az);
+    printf("        az: %3.0f\n", az);
 }
 
 /* returns an angle in degrees in the range 0 to 360 */
